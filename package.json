@@ -6,7 +6,7 @@
     "node": ">=20.0.0 <21.0.0"
   },
   "scripts": {
-    "dev": "concurrently \"stripe listen --forward-to localhost:3000/stripe\" \"nx run-many --target=serve --projects=frontend,backend,workers --parallel=4\"",
+    "dev": "concurrently \"stripe listen --forward-to localhost:3000/stripe\" \"nx run-many --target=serve --projects=backend,workers --parallel=4\"",
     "docs": "nx run docs:serve:development",
     "workers": "nx run workers:serve:development",
     "cron": "nx run cron:serve:development",
