@@ -47,6 +47,20 @@ services:
       FRONTEND_URL: https://localhost
       NEXT_PUBLIC_BACKEND_URL: https://localhost/api
       BACKEND_INTERNAL_URL: http://192.168.10.178:3000
+  backend:
+    build:
+      context: .
+      dockerfile: Dockerfile.backend
+      args:
+        NEXT_PUBLIC_BACKEND_URL: "https://localhost/api"
+    container_name: backend
+    restart: always
+    ports:
+      - 3000:3000
+    environment:
+      FRONTEND_URL: https://localhost
+      NEXT_PUBLIC_BACKEND_URL: https://localhost/api
+      BACKEND_INTERNAL_URL: http://192.168.10.178:3000
   minio:
     image: minio/minio:latest
     container_name: minio

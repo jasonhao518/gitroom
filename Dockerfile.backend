@@ -7,14 +7,14 @@ WORKDIR /usr/src/app
 
 
 # Copy local code to the container image.
-COPY dist/apps/frontend /usr/src/app
-
+COPY dist/apps/backend /usr/src/app
+COPY package.json /usr/src/app
 # Install production dependencies.
 RUN npm install
 
 
 # Run the Next.js application.
-CMD ["npx", "next", "start","-p", "4200"]
+CMD [ "node", "main.js"]
 
 # Inform Docker that the container is listening on the specified port at runtime.
 EXPOSE 4200
