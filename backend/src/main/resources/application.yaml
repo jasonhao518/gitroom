@@ -1,0 +1,22 @@
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost:5432/gitroom-db-local
+    username: gitroom-local
+    password: gitroom-local-pwd
+    driver-class-name: org.postgresql.Driver
+  jpa:
+    hibernate:
+      ddl-auto: none
+      naming:
+        physical-strategy: gitroom.backend.hibernate.CustomPhysicalNamingStrategy
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+
+# Optionally, enable SQL logging for debugging
+logging:
+  level:
+    root: debug
+    org:
+      hibernate:
+        SQL: debug
